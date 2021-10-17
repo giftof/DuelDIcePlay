@@ -65,6 +65,7 @@ class GameViewController: UIViewController {
     }
 }
 
+
 // MARK: - MyFunc(Observe)
 
 extension GameViewController {
@@ -82,6 +83,8 @@ extension GameViewController {
         }
     }
 }
+
+
 // MARK: - MyFunc(GameScene)
 
 extension GameViewController {
@@ -112,3 +115,4 @@ extension GameViewController {
         return "~~~Draw~~~"
     }
 }
+
