@@ -41,9 +41,9 @@ class GameViewController: UIViewController {
                 
                 setObservation()
                 // 아래 두줄처럼 전달하는게 MVC패턴에 맞나?
-                user.createMyInstance()
-                getLabelNodeFromSceneNode(sceneNode: sceneNode)
-                sceneNode.setReference(by: self)
+                user.createUserInstance()
+                getLabelNodeFrom(sceneNode: sceneNode)
+                sceneNode.setReference(to: self)
             }
         }
     }
@@ -98,13 +98,13 @@ extension GameViewController {
     }
 
     // 이부분을, 어떻게 연결하는게 좋은건지 모르겠음...
-    func getLabelNodeFromSceneNode(sceneNode: GameScene) {
+    func getLabelNodeFrom(sceneNode: GameScene) {
         self.dice1 = sceneNode.dice1
         self.dice2 = sceneNode.dice2
         self.label = sceneNode.label
     }
     
-    func rollDice() {
+    func doRolling() {
         user.requestRollingDices()
         enemy.requestRollingDices()
     }

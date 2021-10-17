@@ -24,7 +24,7 @@ struct GetDiceResult {
 }
 
 struct GetDiceInfo {
-    func getDice(with token: String) -> String {
+    func getDice(by token: String) -> String {
         let diceJsonString = """
         {
             "uuid"          : "diceUUID",
@@ -41,7 +41,7 @@ struct GetDiceInfo {
 }
 
 struct GetUserInfo {
-    func getUser(with token: String) -> String {
+    func getUser(by token: String) -> String {
         let userJsonString = """
         {
             "name"          : "noname",
@@ -56,7 +56,7 @@ struct GetUserInfo {
 }
 
 struct GetSomeoneInfo {
-    func getUser(with token: String, who name: String, by tag: String) -> String {
+    func getUser(by token: String, who name: String, by tag: String) -> String {
         let userJsonString = """
         {
             "name"          : "enemy",
@@ -71,7 +71,7 @@ struct GetSomeoneInfo {
 }
 
 struct GetHistory {
-    func getHistory(with diceUUID: String) -> String {
+    func getHistory(by diceUUID: String) -> String {
         let diceHistory = """
         {
             "nameHistory"   : ["name0", "tag0", "name1", "tag1", "name2", "tag2"]

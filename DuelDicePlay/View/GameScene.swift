@@ -32,7 +32,7 @@ class GameScene: SKScene {
         setParticle()
     }
     
-    func setReference(by reference: GameViewController) {
+    func setReference(to reference: GameViewController) {
         self.viewController = reference
     }
 }
@@ -142,7 +142,7 @@ extension GameScene {
                 // controller의 모든 함수에 접근할수 있는것도 마음에 들지 않음.
                 // 그렇다고, 함수포인터로 전달한들...
                 // 당초에, controller를 이런식으로 전달하는게 맞는지가 의문임.
-                self.viewController?.rollDice()
+                self.viewController?.doRolling()
             }
         }
 

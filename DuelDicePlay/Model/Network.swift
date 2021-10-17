@@ -63,22 +63,22 @@ struct Network: NetworkDelegate {
     
 
     func myData() -> Data {
-        guard let user = GetUserInfo().getUser(with: token!).data(using: .utf8) else { assert(false) }
+        guard let user = GetUserInfo().getUser(by: token!).data(using: .utf8) else { assert(false) }
         return user
     }
     
     func someoneData(name: String, tag: String) -> Data {
-        guard let user = GetSomeoneInfo().getUser(with: token!, who: name, by: tag).data(using: .utf8) else { assert(false) }
+        guard let user = GetSomeoneInfo().getUser(by: token!, who: name, by: tag).data(using: .utf8) else { assert(false) }
         return user
     }
     
     func diceData() -> Data {
-        guard let dice = GetDiceInfo().getDice(with: token!).data(using: .utf8) else { assert(false) }
+        guard let dice = GetDiceInfo().getDice(by: token!).data(using: .utf8) else { assert(false) }
         return dice
     }
     
     func diceHistory(with uuid: String) -> Data {
-        guard let history = GetHistory().getHistory(with: uuid).data(using: .utf8) else { assert(false) }
+        guard let history = GetHistory().getHistory(by: uuid).data(using: .utf8) else { assert(false) }
         return history
     }
     

@@ -53,26 +53,26 @@ class User: NSObject {
     var network         = Network()
     @objc dynamic var rollResult    = 0
     
-    func createMyInstance() {
-        guard let instance:UserModel = DecodeJson().with(rawData: network.myData()) else { assert(false) }
+    func createUserInstance() {
+        guard let instance:UserModel = DecodeJson().to(rawData: network.myData()) else { assert(false) }
         self.instance = instance
     }
 
-    func createUserInstanceByNameTag(name: String, tag: String) {
-        guard let instance:UserModel = DecodeJson().with(rawData: network.someoneData(name: name, tag: tag)) else { assert(false) }
+    func createUserInstanceBy(name: String, tag: String) {
+        guard let instance:UserModel = DecodeJson().to(rawData: network.someoneData(name: name, tag: tag)) else { assert(false) }
         self.instance = instance
     }
 
-    func createDice() -> DiceModel {
-        let dice:DiceModel = DecodeJson().with(rawData: network.diceData())
+    func createDiceModel() -> DiceModel {
+        let dice:DiceModel = DecodeJson().to(rawData: network.diceData())
         return dice
     }
 
-    func addDice() {
+    func addDiceModel() {
         guard (instance != nil) else { assert(false) }
         var amount = 0
         while amount < self.instance?.diceUUIDArray.count ?? 0 {
-            let dice = createDice()
+            let dice = createDiceModel()
             self.dices.append(dice)
             amount += 1
         }
@@ -80,7 +80,7 @@ class User: NSObject {
 
     func requestRollingDices() {
         self.rollResult = 0
-        let roll: DiceRoll = DecodeJson().with(rawData: network.diceRoll())
+        let roll: DiceRoll = DecodeJson().to(rawData: network.diceRoll())
         for element in roll.numbers {
 #if DEBUG
             print(element)
@@ -108,7 +108,7 @@ struct MakePair {
 
 struct DecodeJson {
     
-    func with<T: Decodable>(rawData: Data) -> T {
+    func to<T: Decodable>(rawData: Data) -> T {
         guard let decode = try? JSONDecoder().decode(T.self, from: rawData) else { assert(false) }
 
         return decode
