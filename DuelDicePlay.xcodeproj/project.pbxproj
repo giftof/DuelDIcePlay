@@ -1,0 +1,673 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6931DEC8271A89ED002887E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6931DEC7271A89ED002887E6 /* AppDelegate.swift */; };
+		6931DECA271A89ED002887E6 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6931DEC9271A89ED002887E6 /* GameScene.sks */; };
+		6931DECC271A89ED002887E6 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6931DECB271A89ED002887E6 /* Actions.sks */; };
+		6931DECE271A89ED002887E6 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6931DECD271A89ED002887E6 /* GameScene.swift */; };
+		6931DED0271A89ED002887E6 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6931DECF271A89ED002887E6 /* GameViewController.swift */; };
+		6931DED3271A89ED002887E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6931DED1271A89ED002887E6 /* Main.storyboard */; };
+		6931DED5271A89EF002887E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6931DED4271A89EF002887E6 /* Assets.xcassets */; };
+		6931DED8271A89EF002887E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6931DED6271A89EF002887E6 /* LaunchScreen.storyboard */; };
+		6931DEE2271A89EF002887E6 /* DuelDicePlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6931DEE1271A89EF002887E6 /* DuelDicePlayTests.swift */; };
+		6931DEEC271A89EF002887E6 /* DuelDicePlayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6931DEEB271A89EF002887E6 /* DuelDicePlayUITests.swift */; };
+		6931DEEE271A89EF002887E6 /* DuelDicePlayUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6931DEED271A89EF002887E6 /* DuelDicePlayUITestsLaunchTests.swift */; };
+		6931DF00271C033B002887E6 /* MyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6931DEFF271C033B002887E6 /* MyModels.swift */; };
+		6931DF03271C0561002887E6 /* ServerSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6931DF02271C0561002887E6 /* ServerSide.swift */; };
+		6931DF05271C078B002887E6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6931DF04271C078B002887E6 /* Network.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6931DEDE271A89EF002887E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6931DEBC271A89ED002887E6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6931DEC3271A89ED002887E6;
+			remoteInfo = DuelDicePlay;
+		};
+		6931DEE8271A89EF002887E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6931DEBC271A89ED002887E6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6931DEC3271A89ED002887E6;
+			remoteInfo = DuelDicePlay;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6931DEC4271A89ED002887E6 /* DuelDicePlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DuelDicePlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6931DEC7271A89ED002887E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6931DEC9271A89ED002887E6 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		6931DECB271A89ED002887E6 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		6931DECD271A89ED002887E6 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		6931DECF271A89ED002887E6 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		6931DED2271A89ED002887E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6931DED4271A89EF002887E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6931DED7271A89EF002887E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6931DEDD271A89EF002887E6 /* DuelDicePlayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DuelDicePlayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6931DEE1271A89EF002887E6 /* DuelDicePlayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelDicePlayTests.swift; sourceTree = "<group>"; };
+		6931DEE7271A89EF002887E6 /* DuelDicePlayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DuelDicePlayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6931DEEB271A89EF002887E6 /* DuelDicePlayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelDicePlayUITests.swift; sourceTree = "<group>"; };
+		6931DEED271A89EF002887E6 /* DuelDicePlayUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelDicePlayUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6931DEFF271C033B002887E6 /* MyModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyModels.swift; sourceTree = "<group>"; };
+		6931DF02271C0561002887E6 /* ServerSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSide.swift; sourceTree = "<group>"; };
+		6931DF04271C078B002887E6 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6931DEC1271A89ED002887E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6931DEDA271A89EF002887E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6931DEE4271A89EF002887E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6931DEBB271A89ED002887E6 = {
+			isa = PBXGroup;
+			children = (
+				6931DEC6271A89ED002887E6 /* DuelDicePlay */,
+				6931DEE0271A89EF002887E6 /* DuelDicePlayTests */,
+				6931DEEA271A89EF002887E6 /* DuelDicePlayUITests */,
+				6931DEC5271A89ED002887E6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6931DEC5271A89ED002887E6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6931DEC4271A89ED002887E6 /* DuelDicePlay.app */,
+				6931DEDD271A89EF002887E6 /* DuelDicePlayTests.xctest */,
+				6931DEE7271A89EF002887E6 /* DuelDicePlayUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6931DEC6271A89ED002887E6 /* DuelDicePlay */ = {
+			isa = PBXGroup;
+			children = (
+				6931DF01271C0555002887E6 /* Server */,
+				6931DEFC271C020B002887E6 /* Model */,
+				6931DEFB271C0202002887E6 /* View */,
+				6931DEFA271C01F5002887E6 /* Control */,
+				6931DEC7271A89ED002887E6 /* AppDelegate.swift */,
+				6931DEC9271A89ED002887E6 /* GameScene.sks */,
+				6931DECB271A89ED002887E6 /* Actions.sks */,
+				6931DED1271A89ED002887E6 /* Main.storyboard */,
+				6931DED4271A89EF002887E6 /* Assets.xcassets */,
+				6931DED6271A89EF002887E6 /* LaunchScreen.storyboard */,
+			);
+			path = DuelDicePlay;
+			sourceTree = "<group>";
+		};
+		6931DEE0271A89EF002887E6 /* DuelDicePlayTests */ = {
+			isa = PBXGroup;
+			children = (
+				6931DEE1271A89EF002887E6 /* DuelDicePlayTests.swift */,
+			);
+			path = DuelDicePlayTests;
+			sourceTree = "<group>";
+		};
+		6931DEEA271A89EF002887E6 /* DuelDicePlayUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6931DEEB271A89EF002887E6 /* DuelDicePlayUITests.swift */,
+				6931DEED271A89EF002887E6 /* DuelDicePlayUITestsLaunchTests.swift */,
+			);
+			path = DuelDicePlayUITests;
+			sourceTree = "<group>";
+		};
+		6931DEFA271C01F5002887E6 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				6931DECF271A89ED002887E6 /* GameViewController.swift */,
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
+		6931DEFB271C0202002887E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6931DECD271A89ED002887E6 /* GameScene.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6931DEFC271C020B002887E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6931DEFF271C033B002887E6 /* MyModels.swift */,
+				6931DF04271C078B002887E6 /* Network.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6931DF01271C0555002887E6 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				6931DF02271C0561002887E6 /* ServerSide.swift */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6931DEC3271A89ED002887E6 /* DuelDicePlay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6931DEF1271A89EF002887E6 /* Build configuration list for PBXNativeTarget "DuelDicePlay" */;
+			buildPhases = (
+				6931DEC0271A89ED002887E6 /* Sources */,
+				6931DEC1271A89ED002887E6 /* Frameworks */,
+				6931DEC2271A89ED002887E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DuelDicePlay;
+			productName = DuelDicePlay;
+			productReference = 6931DEC4271A89ED002887E6 /* DuelDicePlay.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6931DEDC271A89EF002887E6 /* DuelDicePlayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6931DEF4271A89EF002887E6 /* Build configuration list for PBXNativeTarget "DuelDicePlayTests" */;
+			buildPhases = (
+				6931DED9271A89EF002887E6 /* Sources */,
+				6931DEDA271A89EF002887E6 /* Frameworks */,
+				6931DEDB271A89EF002887E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6931DEDF271A89EF002887E6 /* PBXTargetDependency */,
+			);
+			name = DuelDicePlayTests;
+			productName = DuelDicePlayTests;
+			productReference = 6931DEDD271A89EF002887E6 /* DuelDicePlayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6931DEE6271A89EF002887E6 /* DuelDicePlayUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6931DEF7271A89EF002887E6 /* Build configuration list for PBXNativeTarget "DuelDicePlayUITests" */;
+			buildPhases = (
+				6931DEE3271A89EF002887E6 /* Sources */,
+				6931DEE4271A89EF002887E6 /* Frameworks */,
+				6931DEE5271A89EF002887E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6931DEE9271A89EF002887E6 /* PBXTargetDependency */,
+			);
+			name = DuelDicePlayUITests;
+			productName = DuelDicePlayUITests;
+			productReference = 6931DEE7271A89EF002887E6 /* DuelDicePlayUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6931DEBC271A89ED002887E6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					6931DEC3271A89ED002887E6 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					6931DEDC271A89EF002887E6 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 6931DEC3271A89ED002887E6;
+					};
+					6931DEE6271A89EF002887E6 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 6931DEC3271A89ED002887E6;
+					};
+				};
+			};
+			buildConfigurationList = 6931DEBF271A89ED002887E6 /* Build configuration list for PBXProject "DuelDicePlay" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6931DEBB271A89ED002887E6;
+			productRefGroup = 6931DEC5271A89ED002887E6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6931DEC3271A89ED002887E6 /* DuelDicePlay */,
+				6931DEDC271A89EF002887E6 /* DuelDicePlayTests */,
+				6931DEE6271A89EF002887E6 /* DuelDicePlayUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6931DEC2271A89ED002887E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6931DED3271A89ED002887E6 /* Main.storyboard in Resources */,
+				6931DECA271A89ED002887E6 /* GameScene.sks in Resources */,
+				6931DED5271A89EF002887E6 /* Assets.xcassets in Resources */,
+				6931DED8271A89EF002887E6 /* LaunchScreen.storyboard in Resources */,
+				6931DECC271A89ED002887E6 /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6931DEDB271A89EF002887E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6931DEE5271A89EF002887E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6931DEC0271A89ED002887E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6931DECE271A89ED002887E6 /* GameScene.swift in Sources */,
+				6931DED0271A89ED002887E6 /* GameViewController.swift in Sources */,
+				6931DF03271C0561002887E6 /* ServerSide.swift in Sources */,
+				6931DF00271C033B002887E6 /* MyModels.swift in Sources */,
+				6931DF05271C078B002887E6 /* Network.swift in Sources */,
+				6931DEC8271A89ED002887E6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6931DED9271A89EF002887E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6931DEE2271A89EF002887E6 /* DuelDicePlayTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6931DEE3271A89EF002887E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6931DEEC271A89EF002887E6 /* DuelDicePlayUITests.swift in Sources */,
+				6931DEEE271A89EF002887E6 /* DuelDicePlayUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6931DEDF271A89EF002887E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6931DEC3271A89ED002887E6 /* DuelDicePlay */;
+			targetProxy = 6931DEDE271A89EF002887E6 /* PBXContainerItemProxy */;
+		};
+		6931DEE9271A89EF002887E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6931DEC3271A89ED002887E6 /* DuelDicePlay */;
+			targetProxy = 6931DEE8271A89EF002887E6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6931DED1271A89ED002887E6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6931DED2271A89ED002887E6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6931DED6271A89EF002887E6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6931DED7271A89EF002887E6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6931DEEF271A89EF002887E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6931DEF0271A89EF002887E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6931DEF2271A89EF002887E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.noname.DuelDicePlay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6931DEF3271A89EF002887E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.noname.DuelDicePlay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6931DEF5271A89EF002887E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.noname.DuelDicePlayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DuelDicePlay.app/DuelDicePlay";
+			};
+			name = Debug;
+		};
+		6931DEF6271A89EF002887E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.noname.DuelDicePlayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DuelDicePlay.app/DuelDicePlay";
+			};
+			name = Release;
+		};
+		6931DEF8271A89EF002887E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.noname.DuelDicePlayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DuelDicePlay;
+			};
+			name = Debug;
+		};
+		6931DEF9271A89EF002887E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.noname.DuelDicePlayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DuelDicePlay;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6931DEBF271A89ED002887E6 /* Build configuration list for PBXProject "DuelDicePlay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6931DEEF271A89EF002887E6 /* Debug */,
+				6931DEF0271A89EF002887E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6931DEF1271A89EF002887E6 /* Build configuration list for PBXNativeTarget "DuelDicePlay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6931DEF2271A89EF002887E6 /* Debug */,
+				6931DEF3271A89EF002887E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6931DEF4271A89EF002887E6 /* Build configuration list for PBXNativeTarget "DuelDicePlayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6931DEF5271A89EF002887E6 /* Debug */,
+				6931DEF6271A89EF002887E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6931DEF7271A89EF002887E6 /* Build configuration list for PBXNativeTarget "DuelDicePlayUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6931DEF8271A89EF002887E6 /* Debug */,
+				6931DEF9271A89EF002887E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6931DEBC271A89ED002887E6 /* Project object */;
+}
