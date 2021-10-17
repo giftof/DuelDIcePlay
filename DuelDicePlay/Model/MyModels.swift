@@ -46,9 +46,47 @@ struct DiceHistoryModel: Codable {
 
 // MARK: - User
 
-class User {
+class User: NSObject {
     var instance:       UserModel?
     var dices:          [DiceModel] = []
+    var network         = Network()
+    @objc dynamic var rollResult    = 0
+    
+    func createMyInstance() {
+        guard let instance:UserModel = DecodeJson().with(rawData: network.myData()) else { assert(false) }
+        self.instance = instance
+    }
+
+    func createUserInstanceByNameTag(name: String, tag: String) {
+        guard let instance:UserModel = DecodeJson().with(rawData: network.someoneData(name: name, tag: tag)) else { assert(false) }
+        self.instance = instance
+    }
+
+    func createDice() -> DiceModel {
+        let dice:DiceModel = DecodeJson().with(rawData: network.diceData())
+        return dice
+    }
+
+    func addDice() {
+        guard (instance != nil) else { assert(false) }
+        var amount = 0
+        while amount < self.instance?.diceUUIDArray.count ?? 0 {
+            let dice = createDice()
+            self.dices.append(dice)
+            amount += 1
+        }
+    }
+
+    func requestRollingDices() {
+        self.rollResult = 0
+        let roll: DiceRoll = DecodeJson().with(rawData: network.diceRoll())
+        for element in roll.numbers {
+#if DEBUG
+            print(element)
+#endif
+            self.rollResult += element
+        }
+    }
 }
 
 
@@ -76,5 +114,11 @@ struct DecodeJson {
     
 }
 
-// MARK: - NOT_YET
+// MARK: - Both played
 
+class RollingCountUserAndEnemy {
+    var user     = 0
+    var enemy    = 0
+}
+
+// MARK: - NOT_YET

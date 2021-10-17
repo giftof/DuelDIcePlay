@@ -24,27 +24,22 @@ class GameScene: SKScene {
     var viewController: GameViewController?
 
     override func sceneDidLoad() {
-        print("scene loaded start")
         self.lastUpdateTime = 0
         
         setMyDice()
         setEnemyDice()
         setResultText()
         setParticle()
-        
-        print("scene loaded end")
     }
     
-    
+    func setReference(by reference: GameViewController) {
+        self.viewController = reference
+    }
 }
 
 // MARK: - update(GameScene)
 
 extension GameScene {
-    
-    func setViewController(viewController: GameViewController) {
-        self.viewController = viewController
-    }
     
     
     func setMyDice() {
@@ -143,20 +138,20 @@ extension GameScene {
         if let label = self.label {
             label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + updateDelay) {
-                // 이렇게 호출하면... 올바를까?
+                // 어찌 처리하는게 좋을지는 모르겠지만... 암튼, 이렇게 처리됨
+                // controller의 모든 함수에 접근할수 있는것도 마음에 들지 않음.
+                // 그렇다고, 함수포인터로 전달한들...
+                // 당초에, controller를 이런식으로 전달하는게 맞는지가 의문임.
                 self.viewController?.rollDice()
             }
         }
-        
-        
+
         if let dice1 = self.dice1 {
             dice1.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
         }
         if let dice2 = self.dice2 {
             dice2.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
         }
-
-        
         
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }

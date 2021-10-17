@@ -10,40 +10,42 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
-    var user:       User?
-    var network:    Network = Network()
-
+    var user        = User()
+    var enemy       = User()
+    var userObservation : NSKeyValueObservation?
+    var enemyObservation: NSKeyValueObservation?
+    var both        = RollingCountUserAndEnemy()
+    var other:      [User] = []
+    
+    let testCount = 4
+    
     var dice1: SKLabelNode?
     var dice2: SKLabelNode?
     var label: SKLabelNode?
 
     override func viewDidLoad() {
-        print("viewController loaded super")
         super.viewDidLoad()
-        print("viewController loaded start")
         if let scene = GKScene(fileNamed: "GameScene") {
-            
             if let sceneNode = scene.rootNode as! GameScene? {
-                
+                    
                 sceneNode.entities = scene.entities
                 sceneNode.graphs = scene.graphs
                 sceneNode.scaleMode = .aspectFill
-                
+                    
                 if let view = self.view as! SKView? {
                     view.presentScene(sceneNode)
-                    
                     view.ignoresSiblingOrder = true
-                    
                     view.showsFPS = true
                     view.showsNodeCount = true
                 }
                 
-                setDefaultData(sceneNode: sceneNode)
-                sceneNode.setViewController(viewController: self)
+                setObservation()
+                // 아래 두줄처럼 전달하는게 MVC패턴에 맞나?
+                user.createMyInstance()
+                getLabelNodeFromSceneNode(sceneNode: sceneNode)
+                sceneNode.setReference(by: self)
             }
         }
-        
-        print("viewController loaded end")
     }
 
     override var shouldAutorotate: Bool {
@@ -63,105 +65,50 @@ class GameViewController: UIViewController {
     }
 }
 
+// MARK: - MyFunc(Observe)
 
+extension GameViewController {
+    
+    func setObservation() {
+        userObservation = user.observe(\.rollResult, options: [.old, .new]) { (object, change) in
+            self.dice1?.text = "my roll = \(change.newValue!)"
+            self.both.user += 1
+            self.DidBothOfYouRollTheDice()
+        }
+        enemyObservation = enemy.observe(\.rollResult, options: [.old, .new]) { (object, change) in
+            self.dice2?.text = "enemy roll = \(change.newValue!)"
+            self.both.enemy += 1
+            self.DidBothOfYouRollTheDice()
+        }
+    }
+}
 // MARK: - MyFunc(GameScene)
 
 extension GameViewController {
+    
+    func DidBothOfYouRollTheDice() {
+        if ((self.both.enemy >= testCount) && (self.both.user >= testCount)) {
+            self.both.enemy = 0
+            self.both.user  = 0
+            self.label?.text = resultString(my: user.rollResult, enemy: enemy.rollResult)
+        }
+    }
 
     // 이부분을, 어떻게 연결하는게 좋은건지 모르겠음...
-    func setDefaultData(sceneNode: GameScene) {
-        user = createMyInstance()
-        
+    func getLabelNodeFromSceneNode(sceneNode: GameScene) {
         self.dice1 = sceneNode.dice1
         self.dice2 = sceneNode.dice2
         self.label = sceneNode.label
     }
     
-    
-    
     func rollDice() {
-        let my = rollResult()
-        let enemy = rollResult()
-        let result = resultString(my: my, enemy: enemy)
-        
-        dice1?.text = "my roll = \(my)"
-        dice2?.text = "enemy roll = \(enemy)"
-        label?.text = result
-        print(result)
+        user.requestRollingDices()
+        enemy.requestRollingDices()
     }
-    
-    
     
     func resultString(my: Int, enemy: Int) -> String {
-        if (my < enemy) { return "LOSE!" }
+        if (my < enemy) { return "Defeated!" }
         if (enemy < my) { return "WIN!" }
-        return "TIE~~~"
-    }
-}
-
-// MARK: - MyFunc(GameScene)
-
-extension GameViewController {
-    
-    func createMyInstance() -> User {
-        let user = User()
-        let instance:UserModel = DecodeJson().with(rawData: network.myData())
-        
-        user.instance = instance
-        addDice(to: user)
-        
-        return user
-    }
-
-    
-    
-    func createUserInstanceByNameTag(name: String, tag: String) -> User {
-        let someone = User()
-        let instance:UserModel = DecodeJson().with(rawData: network.someoneData(name: name, tag: tag))
-        
-        someone.instance = instance
-        addDice(to: someone)
-        
-        return someone
-    }
-    
-    
-    
-    func createDice() -> DiceModel {
-        let dice:DiceModel = DecodeJson().with(rawData: network.diceData())
-        
-        return dice
-    }
-    
-    
-    
-    func addDice(to target: User) {
-        var amount = 0
-        while amount < target.instance?.diceUUIDArray.count ?? 0 {
-            let dice = createDice()
-            target.dices.append(dice)
-            amount += 1
-        }
-    }
-    
-    
-    
-//    func rollResult() {
-//        let roll: DiceRoll = DecodeJson().with(rawData: network.diceRoll())
-//        for element in roll.numbers {
-//            print(element)
-//        }
-//    }
-
-
-
-    func rollResult() -> Int {
-        var sum = 0
-        let roll: DiceRoll = DecodeJson().with(rawData: network.diceRoll())
-        for element in roll.numbers {
-            print(element)
-            sum += element
-        }
-        return sum
+        return "~~~Draw~~~"
     }
 }
