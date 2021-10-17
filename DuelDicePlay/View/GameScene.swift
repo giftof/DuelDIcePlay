@@ -10,31 +10,74 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    var user:       User?
-    var network:    Network = Network()
-    
+    let updateDelay = 0.3
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     
     private var lastUpdateTime : TimeInterval = 0
-    private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
-    override func sceneDidLoad() {
+    var dice1: SKLabelNode?
+    var dice2: SKLabelNode?
+    var label: SKLabelNode?
+    // viewController 를 이렇게 받아도 되나?
+    var viewController: GameViewController?
 
+    override func sceneDidLoad() {
+        print("scene loaded start")
         self.lastUpdateTime = 0
         
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
+        setMyDice()
+        setEnemyDice()
+        setResultText()
+        setParticle()
+        
+        print("scene loaded end")
+    }
+    
+    
+}
+
+// MARK: - update(GameScene)
+
+extension GameScene {
+    
+    func setViewController(viewController: GameViewController) {
+        self.viewController = viewController
+    }
+    
+    
+    func setMyDice() {
+        self.dice1 = self.childNode(withName: "//dice1Label") as? SKLabelNode
+        if let dice1 = self.dice1 {
+            dice1.alpha = 0.0
+            dice1.run(SKAction.fadeIn(withDuration: 2.0))
+            dice1.text = "my dice"
+        }
+    }
+
+    func setEnemyDice() {
+        self.dice2 = self.childNode(withName: "//dice2Label") as? SKLabelNode
+        if let dice2 = self.dice2 {
+            dice2.alpha = 0.0
+            dice2.run(SKAction.fadeIn(withDuration: 2.0))
+            dice2.text = "enemy dice"
+        }
+
+    }
+
+    func setResultText() {
+        self.label = self.childNode(withName: "//rollResult") as? SKLabelNode
         if let label = self.label {
             label.alpha = 0.0
             label.run(SKAction.fadeIn(withDuration: 2.0))
+            label.text = "---"
         }
-        
-        // Create shape node to use during mouse interaction
+    }
+    
+    func setParticle() {
         let w = (self.size.width + self.size.height) * 0.05
         self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-        
         if let spinnyNode = self.spinnyNode {
             spinnyNode.lineWidth = 2.5
             
@@ -43,83 +86,8 @@ class GameScene: SKScene {
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
         }
-        
-        
-        
-        /* test code start */
-        user = createMyInstance()
-        
-        print(user!.instance!.diceUUIDArray.count)
-        print(user!.dices[0].faceCount)
-        print(user!.dices[1].faceCount)
-        print(user!.dices[2].faceCount)
-        
-
-        
-        
-        
-//        let dice = createDice()
-//        let rawData = network.diceHistory(with: dice.uuid)
-//        let decode:DiceHistoryModel = DecodeJson().with(rawData: rawData)
-//        let pair = MakePair().with(arraySource: decode.nameHistory)
-//        
-//        for (left, right) in pair {
-//            print(left, right)
-//        }
-        
-        
-        /* test code end */
-    }
-    
-    
-}
-
-// MARK: - MyFunc(GameScene)
-
-extension GameScene {
-    
-    func createMyInstance() -> User {
-        let user = User()
-        let instance:UserModel = DecodeJson().with(rawData: network.myData())
-        
-        user.instance = instance
-        addDice(to: user)
-        
-        return user
-    }
-
-    
-    
-    func createUserInstanceByNameTag(name: String, tag: String) -> User {
-        let someone = User()
-        let instance:UserModel = DecodeJson().with(rawData: network.someoneData(name: name, tag: tag))
-        
-        someone.instance = instance
-        addDice(to: someone)
-        
-        return someone
-    }
-    
-    
-    
-    func createDice() -> DiceModel {
-        let dice:DiceModel = DecodeJson().with(rawData: network.diceData())
-        
-        return dice
-    }
-    
-    
-    
-    func addDice(to target: User) {
-        var amount = 0
-        while amount < target.instance?.diceUUIDArray.count ?? 0 {
-            let dice = createDice()
-            target.dices.append(dice)
-            amount += 1
-        }
     }
 }
-
 
 
 
@@ -128,17 +96,12 @@ extension GameScene {
 extension GameScene {
     
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
-        
-        // Initialize _lastUpdateTime if it has not already been
         if (self.lastUpdateTime == 0) {
             self.lastUpdateTime = currentTime
         }
         
-        // Calculate time since last update
         let dt = currentTime - self.lastUpdateTime
         
-        // Update entities
         for entity in self.entities {
             entity.update(deltaTime: dt)
         }
@@ -179,7 +142,21 @@ extension GameScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let label = self.label {
             label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + updateDelay) {
+                // 이렇게 호출하면... 올바를까?
+                self.viewController?.rollDice()
+            }
         }
+        
+        
+        if let dice1 = self.dice1 {
+            dice1.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+        }
+        if let dice2 = self.dice2 {
+            dice2.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+        }
+
+        
         
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
@@ -196,3 +173,8 @@ extension GameScene {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
 }
+
+
+
+
+

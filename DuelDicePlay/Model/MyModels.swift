@@ -30,6 +30,12 @@ struct UserModel: Codable {
     var diceUUIDArray:  [String]
 }
 
+// MARK: - Decode
+
+struct DiceRoll: Codable {
+    var numbers:        [Int]
+}
+
 
 // MARK: - DiceHistory
 
@@ -58,7 +64,7 @@ struct MakePair {
     }
 }
 
-// MARK: - NOT_YET
+// MARK: - Decode
 
 struct DecodeJson {
     
@@ -70,4 +76,5 @@ struct DecodeJson {
     
 }
 
+// MARK: - NOT_YET
 

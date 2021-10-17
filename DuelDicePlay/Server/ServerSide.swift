@@ -12,6 +12,17 @@ import Foundation
 //    
 //}
 
+struct GetDiceResult {
+    func getResult() -> String {
+        let diceRollJsonString = """
+        {
+            "numbers"       : [ \(Int.random(in: 1...6)), \(Int.random(in: 1...6)), \(Int.random(in: 1...6)) ]
+        }
+        """
+        return diceRollJsonString
+    }
+}
+
 struct GetDiceInfo {
     func getDice(with token: String) -> String {
         let diceJsonString = """
