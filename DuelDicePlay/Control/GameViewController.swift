@@ -40,8 +40,9 @@ class GameViewController: UIViewController {
                 }
                 
                 setObservation()
+                user.createUserInstance()                               // 아직 필요 없음
+                enemy.createUserInstanceBy(name: "noname", tag: "2022") // 아직 필요 없음
                 // 아래 두줄처럼 전달하는게 MVC패턴에 맞나?
-                user.createUserInstance()
                 getLabelNodeFrom(sceneNode: sceneNode)
                 sceneNode.setReference(to: self)
             }
