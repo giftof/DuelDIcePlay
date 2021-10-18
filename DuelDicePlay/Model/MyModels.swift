@@ -51,7 +51,7 @@ class User: NSObject {
     var instance:       UserModel?
     var dices:          [DiceModel] = []
     var network         = Network()
-    @objc dynamic var rollResult    = 0
+    var sumOfDiceResult = 0
     
     func createUserInstance() {
         guard let instance:UserModel = DecodeJson().to(rawData: network.myData()) else { assert(false) }
@@ -79,13 +79,13 @@ class User: NSObject {
     }
 
     func requestRollingDices() {
-        self.rollResult = 0
+        self.sumOfDiceResult = 0
         let roll: DiceRoll = DecodeJson().to(rawData: network.diceRoll())
         for element in roll.numbers {
 #if DEBUG
             print(element)
 #endif
-            self.rollResult += element
+            self.sumOfDiceResult += element
         }
     }
 }

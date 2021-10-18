@@ -9,13 +9,24 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
+class OBUser: User {
+    
+    @objc dynamic var observed = 0
+    
+    override var sumOfDiceResult:Int {
+        didSet {
+            observed = sumOfDiceResult
+        }
+    }
+}
+
 class GameViewController: UIViewController {
-    var user        = User()
-    var enemy       = User()
+    var user        = OBUser()
+    var enemy       = OBUser()
     var userObservation : NSKeyValueObservation?
     var enemyObservation: NSKeyValueObservation?
     var both        = RollingCountUserAndEnemy()
-    var other:      [User] = []
+    var other:      [OBUser] = []
     
     let testCount = 4
     
@@ -72,12 +83,12 @@ class GameViewController: UIViewController {
 extension GameViewController {
     
     func setObservation() {
-        userObservation = user.observe(\.rollResult, options: [.old, .new]) { (object, change) in
+        userObservation = user.observe(\.observed, options: [.old, .new]) { (object, change) in
             self.dice1?.text = "my roll = \(change.newValue!)"
             self.both.user += 1
             self.DidBothOfYouRollTheDice()
         }
-        enemyObservation = enemy.observe(\.rollResult, options: [.old, .new]) { (object, change) in
+        enemyObservation = enemy.observe(\.observed, options: [.old, .new]) { (object, change) in
             self.dice2?.text = "enemy roll = \(change.newValue!)"
             self.both.enemy += 1
             self.DidBothOfYouRollTheDice()
@@ -94,11 +105,11 @@ extension GameViewController {
         if ((self.both.enemy >= testCount) && (self.both.user >= testCount)) {
             self.both.enemy = 0
             self.both.user  = 0
-            self.label?.text = resultString(my: user.rollResult, enemy: enemy.rollResult)
+            self.label?.text = resultString(my: user.sumOfDiceResult, enemy: enemy.sumOfDiceResult)
         }
     }
 
-    // 이부분을, 어떻게 연결하는게 좋은건지 모르겠음...
+    // 이부분을, 어떻게 연결하는게 좋은건지 모르겠음... (이래도 되나?)
     func getLabelNodeFrom(sceneNode: GameScene) {
         self.dice1 = sceneNode.dice1
         self.dice2 = sceneNode.dice2
