@@ -77,6 +77,14 @@ class GameViewController: UIViewController {
     }
 }
 
+// MARK: - Delegate(toGameScene)
+
+extension GameViewController : GameSceneDelegate {
+    func touchBegin() {
+        doRolling()
+    }
+}
+
 
 // MARK: - MyFunc(Observe)
 
@@ -103,8 +111,8 @@ extension GameViewController {
     
     func DidBothOfYouRollTheDice() {
         if ((self.both.enemy >= testCount) && (self.both.user >= testCount)) {
-            self.both.enemy = 0
-            self.both.user  = 0
+            self.both.enemy  = 0
+            self.both.user   = 0
             self.label?.text = resultString(my: user.sumOfDiceResult, enemy: enemy.sumOfDiceResult)
         }
     }

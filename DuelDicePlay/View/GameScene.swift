@@ -8,8 +8,13 @@
 import SpriteKit
 import GameplayKit
 
+protocol GameSceneDelegate {
+    func touchBegin()
+}
+
 class GameScene: SKScene {
     
+    var gameSceneDelegate: GameSceneDelegate?
     let updateDelay = 0.3
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
@@ -25,15 +30,16 @@ class GameScene: SKScene {
 
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
-        
+
         setMyDice()
         setEnemyDice()
         setResultText()
         setParticle()
     }
     
-    func setReference(to reference: GameViewController) {
-        self.viewController = reference
+    func setReference(to reference: GameSceneDelegate) {
+        self.gameSceneDelegate = reference
+//        self.viewController = reference
     }
 }
 
@@ -142,7 +148,8 @@ extension GameScene {
                 // controller의 모든 함수에 접근할수 있는것도 마음에 들지 않음.
                 // 그렇다고, 함수포인터로 전달한들...
                 // 당초에, controller를 이런식으로 전달하는게 맞는지가 의문임.
-                self.viewController?.doRolling()
+//                self.viewController?.doRolling()
+                self.gameSceneDelegate?.touchBegin()
             }
         }
 
